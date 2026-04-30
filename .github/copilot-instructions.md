@@ -41,14 +41,3 @@ Cuando implementes desde una spec, estructura tu respuesta así:
 2. Genera el código
 3. Genera los tests correspondientes
 4. Indica si algún criterio quedó sin cubrir y por qué
-
----
-
-## Contexto de Guise
-
-Guise es un cliente Electron para servidores Duchy Manor.
-
-- El backend de referencia vive en `~/Documentos/develop/spec-driven/Manor`.
-- Antes de diseñar cualquier spec de Guise que consuma la API o WebSocket, consulta las specs de Manor en `~/Documentos/develop/spec-driven/Manor/specs/` para verificar los contratos.
-- Las specs de Guise en `specs/api/` documentan cómo Guise consume la API de Manor, no cómo Manor la implementa.
-- Si detectas un contrato de Manor que Guise necesita pero no existe, señálalo para añadirlo en Manor primero.
