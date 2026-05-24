@@ -1,0 +1,301 @@
+---
+/**
+ * FEAT-003: Header hero con animación de entrada.
+ * - AC-1: Título "Fundamentos del Ajedrez" en tipografía serif
+ * - AC-2: Animación fade-in + slide-up escalonada (staggered)
+ * - AC-3: 90dvh en móvil, centrado
+ * - AC-4: 100dvh en desktop, elemento decorativo SVG
+ * - AC-5: Fondo degradado oscuro (negro/verde)
+ * - AC-6: Único <h1> en la página
+ * - AC-7: Respeta prefers-reduced-motion (gestionado por global.css)
+ */
+---
+
+<section class="hero" aria-label="Portada de Fundamentos del Ajedrez">
+  <div class="hero__bg" aria-hidden="true"></div>
+
+  <div class="hero__content container">
+    <div class="hero__text">
+      <p class="hero__eyebrow hero--anim-1">El universo del ajedrez</p>
+      <h1 class="hero__title hero--anim-2">
+        Fundamentos<br />del Ajedrez
+      </h1>
+      <div class="hero__divider hero--anim-3" aria-hidden="true"></div>
+      <p class="hero__subtitle hero--anim-4">
+        De los orígenes milenarios a la era moderna
+      </p>
+      <a href="#el-juego" class="hero__cta hero--anim-5" aria-label="Descubrir el ajedrez — ir a la primera sección">
+        Descubrir
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <path d="M12 5v14M5 12l7 7 7-7"/>
+        </svg>
+      </a>
+    </div>
+
+    <!-- AC-4: Elemento decorativo SVG (solo visible en desktop) -->
+    <div class="hero__decoration" aria-hidden="true">
+      <!-- Rey de ajedrez estilizado como SVG decorativo grande -->
+      <svg class="hero__piece" viewBox="0 0 100 160" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <!-- Cruz del rey -->
+        <rect x="46" y="4" width="8" height="28" rx="4" fill="currentColor" opacity="0.9"/>
+        <rect x="36" y="10" width="28" height="8" rx="4" fill="currentColor" opacity="0.9"/>
+        <!-- Cuerpo -->
+        <ellipse cx="50" cy="44" rx="10" ry="10" fill="currentColor" opacity="0.85"/>
+        <path d="M32 64 Q28 80 24 100 L76 100 Q72 80 68 64 Q60 52 50 52 Q40 52 32 64Z" fill="currentColor" opacity="0.8"/>
+        <!-- Faldón -->
+        <rect x="18" y="100" width="64" height="10" rx="5" fill="currentColor" opacity="0.7"/>
+        <rect x="14" y="110" width="72" height="10" rx="5" fill="currentColor" opacity="0.6"/>
+        <rect x="10" y="120" width="80" height="10" rx="2" fill="currentColor" opacity="0.5"/>
+      </svg>
+      <!-- Patrón de tablero decorativo -->
+      <div class="hero__board-pattern" aria-hidden="true">
+        {Array.from({ length: 16 }).map((_, i) => (
+          <div class={`hero__square ${i % 2 === 0 ? 'hero__square--light' : 'hero__square--dark'}`}></div>
+        ))}
+      </div>
+    </div>
+  </div>
+
+  <!-- Indicador de scroll -->
+  <div class="hero__scroll-hint hero--anim-5" aria-hidden="true">
+    <div class="hero__scroll-line"></div>
+  </div>
+</section>
+
+<style>
+  /* ─── Hero section ──────────────────────────────────────────────────────── */
+  .hero {
+    position: relative;
+    min-height: 90dvh;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    color: var(--color-white);
+  }
+
+  /* AC-5: Fondo degradado oscuro negro/verde */
+  .hero__bg {
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse at 70% 50%, rgba(45, 90, 61, 0.35) 0%, transparent 60%),
+      linear-gradient(160deg, #0d0d0d 0%, #1a1a1a 40%, #0f1f16 100%);
+    z-index: 0;
+  }
+
+  /* Patrón de puntos sutil sobre el fondo */
+  .hero__bg::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(circle, rgba(255,255,255,0.04) 1px, transparent 1px);
+    background-size: 32px 32px;
+  }
+
+  .hero__content {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-12);
+    width: 100%;
+    padding-block: var(--space-20);
+  }
+
+  .hero__text {
+    flex: 1;
+    max-width: 600px;
+  }
+
+  /* ─── Textos ─────────────────────────────────────────────────────────────── */
+  .hero__eyebrow {
+    font-size: var(--text-sm);
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--color-brown-light);
+    margin-bottom: var(--space-4);
+  }
+
+  .hero__title {
+    font-family: var(--font-serif);
+    font-size: clamp(var(--text-4xl), 7vw, var(--text-7xl));
+    font-weight: 900;
+    line-height: 1.05;
+    color: var(--color-white);
+    margin-bottom: var(--space-6);
+  }
+
+  .hero__divider {
+    width: 56px;
+    height: 3px;
+    background: linear-gradient(90deg, var(--color-brown-main), var(--color-green-light));
+    border-radius: var(--radius-full);
+    margin-bottom: var(--space-6);
+  }
+
+  .hero__subtitle {
+    font-size: var(--text-xl);
+    font-weight: 300;
+    color: rgba(255, 255, 255, 0.75);
+    line-height: 1.5;
+    max-width: 44ch;
+    margin-bottom: var(--space-10);
+  }
+
+  /* ─── CTA ────────────────────────────────────────────────────────────────── */
+  .hero__cta {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    padding: var(--space-3) var(--space-8);
+    background: linear-gradient(135deg, var(--color-brown-main), var(--color-green-main));
+    color: var(--color-white);
+    font-size: var(--text-sm);
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    border-radius: var(--radius-full);
+    transition:
+      transform var(--duration-normal) var(--ease-smooth),
+      box-shadow var(--duration-normal) var(--ease-smooth),
+      opacity var(--duration-normal) var(--ease-smooth);
+    box-shadow: 0 4px 20px rgba(107, 76, 42, 0.4);
+  }
+
+  .hero__cta:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 28px rgba(107, 76, 42, 0.55);
+  }
+
+  .hero__cta svg {
+    transition: transform var(--duration-normal) var(--ease-smooth);
+  }
+
+  .hero__cta:hover svg {
+    transform: translateY(3px);
+  }
+
+  /* ─── Decoración desktop ─────────────────────────────────────────────────── */
+  .hero__decoration {
+    display: none;
+    position: relative;
+    flex-shrink: 0;
+  }
+
+  .hero__piece {
+    width: 180px;
+    color: rgba(255, 255, 255, 0.12);
+    filter: drop-shadow(0 0 40px rgba(74, 124, 89, 0.3));
+    animation: floatPiece 6s ease-in-out infinite;
+  }
+
+  @keyframes floatPiece {
+    0%, 100% { transform: translateY(0); }
+    50%       { transform: translateY(-16px); }
+  }
+
+  .hero__board-pattern {
+    position: absolute;
+    bottom: -20px;
+    right: -20px;
+    display: grid;
+    grid-template-columns: repeat(4, 28px);
+    grid-template-rows: repeat(4, 28px);
+    gap: 2px;
+    opacity: 0.18;
+    transform: rotate(-15deg);
+  }
+
+  .hero__square {
+    width: 28px;
+    height: 28px;
+    border-radius: 4px;
+  }
+
+  .hero__square--light {
+    background: var(--color-white);
+  }
+
+  .hero__square--dark {
+    background: var(--color-green-main);
+  }
+
+  /* ─── Scroll hint ────────────────────────────────────────────────────────── */
+  .hero__scroll-hint {
+    position: absolute;
+    bottom: var(--space-8);
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .hero__scroll-line {
+    width: 1px;
+    height: 48px;
+    background: linear-gradient(to bottom, rgba(255,255,255,0.6), transparent);
+    animation: scrollPulse 2s ease-in-out infinite;
+  }
+
+  @keyframes scrollPulse {
+    0%   { transform: scaleY(0); transform-origin: top; opacity: 1; }
+    50%  { transform: scaleY(1); transform-origin: top; opacity: 1; }
+    100% { transform: scaleY(1); transform-origin: top; opacity: 0; }
+  }
+
+  /* ─── Animaciones de entrada escalonadas (AC-2) ─────────────────────────── */
+  .hero--anim-1,
+  .hero--anim-2,
+  .hero--anim-3,
+  .hero--anim-4,
+  .hero--anim-5 {
+    animation: fadeSlideUp var(--duration-slow) var(--ease-smooth) both;
+  }
+
+  .hero--anim-1 { animation-delay: 200ms; }
+  .hero--anim-2 { animation-delay: 400ms; }
+  .hero--anim-3 { animation-delay: 550ms; }
+  .hero--anim-4 { animation-delay: 650ms; }
+  .hero--anim-5 { animation-delay: 800ms; }
+
+  @keyframes fadeSlideUp {
+    from {
+      opacity: 0;
+      transform: translateY(24px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* ─── AC-3/4: Responsive ─────────────────────────────────────────────────── */
+  @media (min-width: 768px) {
+    .hero {
+      min-height: 100dvh;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .hero__decoration {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+
+  /* CE-2: Pantallas muy pequeñas en landscape */
+  @media (max-height: 400px) {
+    .hero {
+      min-height: auto;
+      padding-block: var(--space-16);
+    }
+
+    .hero__scroll-hint {
+      display: none;
+    }
+  }
+</style>

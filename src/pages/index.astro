@@ -1,0 +1,37 @@
+---
+/**
+ * Página principal — única página (one-page) del proyecto.
+ * Ensambla todos los componentes en el orden correcto.
+ * FEAT-001: Estructura ampliable documentada.
+ */
+import BaseLayout from '../layouts/BaseLayout.astro';
+import NavBar from '../components/NavBar.astro';
+import HeaderHero from '../components/sections/HeaderHero.astro';
+import SectionRules from '../components/sections/SectionRules.astro';
+import SectionHistory from '../components/sections/SectionHistory.astro';
+import SectionPlayers from '../components/sections/SectionPlayers.astro';
+import Footer from '../components/Footer.astro';
+
+// Importar estilos globales (FEAT-002)
+import '../styles/global.css';
+---
+
+<BaseLayout>
+  <!-- FEAT-004: Navbar sticky -->
+  <NavBar />
+
+  <!-- FEAT-003: Header hero -->
+  <HeaderHero />
+
+  <!-- FEAT-005: Sección reglas del juego -->
+  <SectionRules />
+
+  <!-- FEAT-006: Sección historia (timeline) -->
+  <SectionHistory />
+
+  <!-- FEAT-007: Sección ajedrecistas famosos -->
+  <SectionPlayers />
+
+  <!-- FEAT-008: Footer -->
+  <Footer />
+</BaseLayout>

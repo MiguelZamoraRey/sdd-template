@@ -138,3 +138,45 @@ Los skills son workflows multi-paso que se invocan también con `/`:
 
 - [GitHub Copilot Customization Docs](https://docs.github.com/en/copilot/customizing-copilot)
 - [Spec-Driven Development — introducción](https://nordicapis.com/spec-driven-development-sdds/)
+
+---
+
+## Ejemplo incluido — Fundamentos del Ajedrez
+
+Esta plantilla incluye un ejemplo completo de SDD: un sitio web de una sola página sobre historia y fundamentos del ajedrez, construido con **Astro 6** y **pnpm**.
+
+### Requisitos
+
+- Node.js ≥ 20
+- pnpm (gestor exclusivo — se rechaza npm/yarn vía `preinstall`)
+
+### Comandos
+
+```bash
+# Instalar dependencias
+pnpm install
+
+# Servidor de desarrollo (http://localhost:4321)
+pnpm dev
+
+# Build de producción (genera dist/)
+pnpm build
+
+# Preview del build de producción
+pnpm preview
+```
+
+### Specs del proyecto
+
+Las 8 specs que guiaron la implementación están en `specs/features/`, todas con estado `implemented`:
+
+| Spec     | Feature                       |
+| -------- | ----------------------------- |
+| FEAT-001 | Proyecto base y configuración |
+| FEAT-002 | Sistema de diseño             |
+| FEAT-003 | Hero header con animación     |
+| FEAT-004 | Navbar sticky                 |
+| FEAT-005 | Sección "El juego" (reglas)   |
+| FEAT-006 | Sección historia (timeline)   |
+| FEAT-007 | Sección ajedrecistas famosos  |
+| FEAT-008 | Footer                        |

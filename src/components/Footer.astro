@@ -1,0 +1,164 @@
+---
+/**
+ * FEAT-008: Footer
+ * - AC-1: "Desarrollado por Miguel Zamora" + Spec Driven Development
+ * - AC-2: Botón "Volver arriba" con smooth scroll a #top
+ * - AC-3: Año dinámico (build time)
+ * - AC-4: Fondo oscuro --color-bg-dark
+ * - AC-5: Centrado y apilado en móvil
+ * - AC-6: <footer role="contentinfo">
+ * - CE-1: Fallback año hardcodeado si Date falla
+ */
+let year: number;
+try {
+  year = new Date().getFullYear();
+} catch {
+  year = 2026; // CE-1: fallback
+}
+---
+
+<footer class="footer" role="contentinfo">
+  <div class="container">
+
+    <!-- Decoración: pieza SVG -->
+    <div class="footer__piece" aria-hidden="true">
+      <svg viewBox="0 0 45 45" fill="none" xmlns="http://www.w3.org/2000/svg" width="32" height="32">
+        <!-- Peón estilizado -->
+        <circle cx="22.5" cy="10" r="5" fill="currentColor" opacity="0.6"/>
+        <path d="M18 16 Q14 22 12 30 L33 30 Q31 22 27 16 Q25 14 22.5 14 Q20 14 18 16Z" fill="currentColor" opacity="0.5"/>
+        <rect x="10" y="30" width="25" height="5" rx="2.5" fill="currentColor" opacity="0.4"/>
+        <rect x="8"  y="35" width="29" height="4" rx="2"   fill="currentColor" opacity="0.3"/>
+      </svg>
+    </div>
+
+    <div class="footer__content">
+      <!-- Nombre del proyecto -->
+      <p class="footer__brand">Fundamentos del Ajedrez</p>
+
+      <!-- Créditos -->
+      <p class="footer__credit">
+        Desarrollado por <strong>Miguel Zamora</strong>
+        &nbsp;·&nbsp;
+        Construido con <a
+          href="https://github.com/midudev/spec-driven-development"
+          class="footer__sdd-link"
+          target="_blank"
+          rel="noopener noreferrer"
+        >Spec Driven Development</a>
+      </p>
+
+      <!-- Copyright -->
+      <p class="footer__copy">
+        &copy; {year} · Todos los derechos reservados
+      </p>
+    </div>
+
+    <!-- Volver arriba (AC-2) -->
+    <a href="#top" class="footer__back-to-top" aria-label="Volver al inicio de la página">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+        <path d="M12 19V5M5 12l7-7 7 7"/>
+      </svg>
+      <span>Volver arriba</span>
+    </a>
+
+  </div>
+</footer>
+
+<style>
+  /* AC-4: Fondo oscuro */
+  .footer {
+    background: var(--color-bg-dark);
+    color: rgba(255, 255, 255, 0.6);
+    padding-block: var(--space-12);
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+  }
+
+  .footer .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-6);
+    text-align: center;
+  }
+
+  /* ─── Icono decorativo ───────────────────────────────────────────────────── */
+  .footer__piece {
+    color: rgba(255, 255, 255, 0.2);
+  }
+
+  /* ─── Contenido (AC-5: centrado en móvil) ────────────────────────────────── */
+  .footer__content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-2);
+  }
+
+  .footer__brand {
+    font-family: var(--font-serif);
+    font-size: var(--text-xl);
+    font-weight: 700;
+    color: var(--color-white);
+    letter-spacing: 0.02em;
+  }
+
+  .footer__credit {
+    font-size: var(--text-sm);
+    line-height: 1.6;
+  }
+
+  .footer__credit strong {
+    color: var(--color-white);
+    font-weight: 600;
+  }
+
+  .footer__sdd-link {
+    color: var(--color-brown-light);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    transition: color var(--duration-fast) var(--ease-smooth);
+  }
+
+  .footer__sdd-link:hover {
+    color: var(--color-white);
+  }
+
+  .footer__copy {
+    font-size: var(--text-xs);
+    color: rgba(255, 255, 255, 0.35);
+    letter-spacing: 0.05em;
+  }
+
+  /* ─── Volver arriba (AC-2) ───────────────────────────────────────────────── */
+  .footer__back-to-top {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    padding: var(--space-2) var(--space-5);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: var(--radius-full);
+    color: rgba(255, 255, 255, 0.6);
+    font-size: var(--text-sm);
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    transition:
+      color var(--duration-fast) var(--ease-smooth),
+      border-color var(--duration-fast) var(--ease-smooth),
+      transform var(--duration-fast) var(--ease-smooth);
+  }
+
+  .footer__back-to-top:hover {
+    color: var(--color-white);
+    border-color: var(--color-brown-light);
+    transform: translateY(-2px);
+  }
+
+  .footer__back-to-top svg {
+    transition: transform var(--duration-fast) var(--ease-smooth);
+  }
+
+  .footer__back-to-top:hover svg {
+    transform: translateY(-2px);
+  }
+</style>
