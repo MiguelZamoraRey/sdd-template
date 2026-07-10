@@ -92,3 +92,4 @@ Al final, dame una recomendación:
 
 - Si la spec está lista: "Puedes cambiar el status a `review` o `approved`."
 - Si necesita cambios: lista los cambios prioritarios numerados.
+- Cualquier duda técnica debe presentarse al final en forma de formulario, preguntandole al programador que camino debemos tomar y proponiendo siempre soluciones para dar varias opciones.
