@@ -1,15 +1,15 @@
 ---
-name: review-spec
-description: "Revisa una spec SDD en busca de ambigüedades, criterios incompletos y casos de borde faltantes. Usa antes de cambiar el status a approved."
+description: Revisa una spec SDD en busca de ambigüedades, criterios incompletos y casos de borde faltantes.
+agent: build
 ---
 
 Voy a revisar esta spec SDD:
 
-**Archivo de spec:** ${input:specFile:Ruta al archivo de spec, ej. specs/features/user-auth.md}
+**Archivo de spec:** $ARGUMENTS
 
 ---
 
-Revisa la spec en `${input:specFile}` y evalúa los siguientes puntos. Para cada uno, indica si pasa ✅ o falla ❌ y explica por qué:
+Revisa la spec y evalúa los siguientes puntos. Para cada uno, indica si pasa ✅ o falla ❌ y explica por qué:
 
 **Completitud del frontmatter**
 
@@ -92,4 +92,4 @@ Al final, dame una recomendación:
 
 - Si la spec está lista: "Puedes cambiar el status a `review` o `approved`."
 - Si necesita cambios: lista los cambios prioritarios numerados.
-- Cualquier duda técnica debe presentarse al final en forma de formulario, preguntandole al programador que camino debemos tomar y proponiendo siempre soluciones para dar varias opciones.
+- Cualquier duda técnica debe presentarse al final en forma de formulario, preguntándole al programador qué camino tomar y proponiendo siempre soluciones para dar varias opciones.

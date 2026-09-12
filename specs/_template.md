@@ -1,7 +1,7 @@
 ---
-id: FEAT-000
-title: Nombre de la funcionalidad
-status: draft
+id: TIPO-XXX
+title: Nombre legible de la spec
+status: draft # draft | review | approved | implemented
 created: YYYY-MM-DD
 updated: YYYY-MM-DD
 owner: nombre-o-equipo
@@ -9,11 +9,11 @@ owner: nombre-o-equipo
 
 ## Resumen
 
-Una o dos frases que describen qué hace esta funcionalidad y para quién es útil.
+Una o dos frases que describen qué hace esta funcionalidad y para quién.
 
 ## Contexto
 
-Por qué se necesita esta funcionalidad. Incluye el problema que resuelve y quién se beneficia de ella.
+Por qué se necesita. Background relevante.
 
 ## Criterios de aceptación
 
@@ -23,19 +23,45 @@ Por qué se necesita esta funcionalidad. Incluye el problema que resuelve y qui�
 
 ## Casos de error
 
-- CE-1: Si [condición de error], el sistema debe [respuesta esperada]
-- CE-2: Si [condición de error], el sistema debe [respuesta esperada]
+- CE-1: Si [condición], el sistema debe [respuesta]
+- CE-2: Si [condición], el sistema debe [respuesta]
 
 ## Fuera de alcance
 
-- Lista explícita de comportamientos que esta spec NO cubre
-- Esto evita que Copilot los implemente sin autorización
+- Lista de cosas que explícitamente NO cubre esta spec
 
 ## Dependencias
 
-- Otras specs que deben estar implementadas primero
-- Módulos o servicios externos requeridos
+- Lista de otras specs o módulos que deben existir primero
 
-## Notas adicionales
+## Documentación
 
-Cualquier información relevante que no encaje en las secciones anteriores.
+### Uso
+
+Cómo se usa la funcionalidad desde el punto de vista del usuario o integrador.
+
+### Ejemplos
+
+Ejemplos de uso (inputs/outputs si aplica).
+
+### Supuestos
+
+Supuestos importantes que debe conocer quien use esta funcionalidad.
+
+## Testing
+
+### Tipos de test
+
+- Unitarios / Integración / e2e
+
+### Casos clave
+
+- Basados en los criterios de aceptación.
+
+### Casos de error
+
+- Escenarios que deben validarse.
+
+### Consideraciones especiales
+
+- Datos mock, fixtures, etc.

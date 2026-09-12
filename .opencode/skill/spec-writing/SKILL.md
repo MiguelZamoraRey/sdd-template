@@ -1,6 +1,6 @@
 ---
-applyTo: "specs/**/*.md"
-description: "Guías para redactar specs en este proyecto SDD. Se aplica automáticamente a todos los archivos en specs/."
+name: spec-writing
+description: Guías para redactar especificaciones SDD en este proyecto (specs/). Usa cuando vayas a escribir, crear o editar archivos de spec en specs/.
 ---
 
 # Cómo escribir especificaciones SDD

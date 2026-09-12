@@ -1,15 +1,15 @@
 ---
-name: create-spec
-description: "Genera una spec SDD completa a partir de una descripción en lenguaje natural. Usa cuando quieras crear una nueva especificación."
+description: Genera una spec SDD completa a partir de una descripción en lenguaje natural.
+agent: build
 ---
 
 Voy a crear una especificación SDD completa para la siguiente funcionalidad:
 
-**Descripción:** ${input:description:Describe en 1-3 frases qué debe hacer esta funcionalidad}
+**Descripción:** $ARGUMENTS
 
-**Tipo de spec:** ${input:type:features|api|data-models}
-
-**ID sugerido:** ${input:id:ej. FEAT-001}
+Instrucciones:
+- Si no se indica el tipo, asume `features`.
+- Si no se indica un ID, propón uno siguiendo la convención (FEAT-XXX, API-XXX, DATA-XXX).
 
 ---
 
@@ -31,4 +31,4 @@ Genera la spec siguiendo estas reglas:
    - Casos de error que deben validarse.
    - Cualquier consideración especial (datos mock, fixtures, etc.).
 
-Guarda el archivo en `specs/${input:type}/` con nombre en `kebab-case.md`.
+Guarda el archivo en `specs/<tipo>/` con nombre en `kebab-case.md`.
