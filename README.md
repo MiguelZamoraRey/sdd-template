@@ -2,6 +2,16 @@
 
 Este proyecto es un boilerplate para desarrollar con SDD (Spec-Driven Development) cualquier proyecto. Usa `/init-project` para reescribir este README y el AGENTS.md con la descripción real del proyecto.
 
+## Requisitos
+
+Esta template usa **opencode v2** (beta). Instálalo con:
+
+```bash
+curl -fsSL https://opencode.ai/v2/install | bash
+```
+
+v2 usa formatos propios: agentes con `permissions:` (array `action/resource/effect`), MCP bajo `mcp.servers` y comandos en `.opencode/commands/`. El cambio de agente en la TUI es **Shift+Tab**.
+
 ## Flujo de trabajo (SDD)
 
 1. **Constitución**: `docs/constitution.md` define los principios innegociables (`/sdd-constitution`).
@@ -18,7 +28,7 @@ Los cambios de requisitos van primero a la spec (`/sdd-change`). Consulta `AGENT
 
 - `docs/constitution.md` — principios innegociables.
 - `specs/NNN-nombre/` — cada spec con `spec.md`, `plan.md` y `tasks.md` (plantillas en `specs/_template/`).
-- `.opencode/command/sdd-*.md` — comandos `/sdd-*`.
+- `.opencode/commands/sdd-*.md` — comandos `/sdd-*`.
 - `.agents/skills/sdd/` — skill de SDD.
 
 ## Convenciones SDD

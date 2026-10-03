@@ -33,11 +33,12 @@ Pregunta si quiere usar servidores MCP:
    - **PostgreSQL** — inspección de esquema y consultas. Local, requiere `DATABASE_URL`. Recomendado si hay base de datos.
    - Sugerencias por tipo: Web app → Playwright + Context7 (+ GitHub); API o backend → PostgreSQL + Context7 (+ GitHub); CLI o librería → Context7 (+ GitHub); Datos → PostgreSQL + Context7; Móvil → Context7 (+ GitHub).
    - Recuerda: cada MCP añade sus tools al contexto del modelo. Recomienda 3-6 como máximo, solo los que el proyecto vaya a usar.
-3. **Escribe la configuración** en `opencode.json` de la raíz del proyecto (crea el archivo con `$schema` si no existe y fusiona con lo que ya haya, sin sobrescribir). Para cada MCP elegido:
-   - GitHub: `{ "type": "remote", "url": "https://api.githubcopilot.com/mcp", "enabled": true }`
-   - Context7: `{ "type": "remote", "url": "https://mcp.context7.com/mcp", "enabled": true }`
-   - Playwright: `{ "type": "local", "command": ["npx", "-y", "@playwright/mcp"], "enabled": true }`
-   - PostgreSQL: `{ "type": "local", "command": ["npx", "-y", "@modelcontextprotocol/server-postgres"], "environment": { "DATABASE_URL": "{env:DATABASE_URL}" }, "enabled": true }`
+3. **Escribe la configuración** en `opencode.json` de la raíz del proyecto (crea el archivo con `$schema` si no existe y fusiona con lo que ya haya, sin sobrescribir). En v2 los servidores van bajo `mcp.servers`. Para cada MCP elegido:
+   - GitHub: `{ "mcp": { "servers": { "github": { "type": "remote", "url": "https://api.githubcopilot.com/mcp" } } } }`
+   - Context7: `{ "mcp": { "servers": { "context7": { "type": "remote", "url": "https://mcp.context7.com/mcp" } } } }`
+   - Playwright: `{ "mcp": { "servers": { "playwright": { "type": "local", "command": ["npx", "-y", "@playwright/mcp"] } } } }`
+   - PostgreSQL: `{ "mcp": { "servers": { "postgres": { "type": "local", "command": ["npx", "-y", "@modelcontextprotocol/server-postgres"], "environment": { "DATABASE_URL": "{env:DATABASE_URL}" } } } } }`
+   - Los servidores se conectan solos; usa `"disabled": true` para desactivar uno sin borrarlo.
    - **Nunca escribas secretos reales en `opencode.json`.** Usa siempre `{env:VAR}`.
 4. **Variables de entorno** — para cada MCP que requiera credenciales (p. ej. `DATABASE_URL`):
    - Añade la variable sin valor a `.env.example` (crea el archivo si no existe).

@@ -6,12 +6,15 @@ Convenciones y flujo de trabajo para cualquier agente que trabaje en este reposi
 
 Este proyecto es un boilerplate para desarrollo con SDD de cualquier proyecto, lo primero que debes hacer es redifinir este AGENTS.md y el README.md para el proyecto que vaya a comenzar el usuario.
 
+> Esta template está pensada para **opencode v2** (formatos v2: agentes con `permissions:` array, MCP bajo `mcp.servers`, comandos en `.opencode/commands/`). En la TUI, el cambio de agente es **Shift+Tab**.
+
 ## Estructura
 
 - **Constitución**: `docs/constitution.md` (principios innegociables del proyecto).
 - **Specs**: `specs/NNN-nombre/` con `spec.md`, `plan.md` y `tasks.md`.
-- **Comandos SDD**: `.opencode/command/sdd-*.md` (invoca `/sdd-*`).
+- **Comandos SDD**: `.opencode/commands/sdd-*.md` (invoca `/sdd-*`).
 - **Skill**: `.agents/skills/sdd/`.
+- **Agentes SDD**: `.opencode/agents/` (coordinator, planner, implementer, reviewer).
 
 ## Flujo de trabajo SDD
 
