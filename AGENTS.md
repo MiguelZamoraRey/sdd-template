@@ -10,7 +10,7 @@ Este proyecto es un boilerplate para desarrollo con SDD de cualquier proyecto, l
 
 - **Specs**: `specs/{features,api,data}/`.
 - **Comandos SDD**: `.opencode/command/`.
-- **Skills**: `.opencode/skill/spec-writing/` (specs) y `.opencode/skill/lcars-style/` (guía de estilos).
+- **Skills**: `.agents/skills/spec-writing/` (specs).
 
 ## Flujo de trabajo SDD
 
@@ -22,7 +22,7 @@ Una spec pasa por `draft` → `review` → `approved` → `implemented` (campo `
 
 - Crea el archivo en `specs/<tipo>/` con nombre en kebab-case.
 - Usa la plantilla `specs/_template.md`.
-- Sigue `spec-writing/SKILL.md`: una spec = una responsabilidad, criterios en formato "Dado X, cuando Y, entonces Z", sin detalles de implementación.
+- Sigue `.agents/skills/spec-writing/SKILL.md`: una spec = una responsabilidad, criterios en formato "Dado X, cuando Y, entonces Z", sin detalles de implementación.
 - Frontmatter obligatorio: `id`, `title`, `status`, `created`, `updated`, `owner`.
 
 ### 2. Revisar
@@ -56,3 +56,14 @@ Una spec pasa por `draft` → `review` → `approved` → `implemented` (campo `
 
 - Ejecuta `pnpm test` y `pnpm check` en el/los proyecto(s) afectados.
 - Si tocas el frontend, confirma que no hay errores de build (`pnpm build`).
+
+## Memoria
+
+- Al empezar, lee `MEMORY.md` para conocer el estado del proyecto y las decisiones
+  tomadas.
+- Al terminar una tarea, actualízalo: estado actual, decisiones importantes (con su
+  porqué) y errores a evitar.
+- Mantenlo breve (máximo ~50 líneas): resume o elimina lo que ya no aporte.
+- Si algo se convierte en una regla permanente, propón moverlo a `AGENTS.md` en lugar de
+  dejarlo en la memoria.
+- No guardes nunca datos sensibles (claves, tokens, datos personales)

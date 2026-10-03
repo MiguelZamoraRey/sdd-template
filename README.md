@@ -4,7 +4,7 @@ Este proyecto es un boilerplate para proyectos con sdd debes cambiar el readme y
 
 **Flujo de trabajo (SDD)**
 
-1. Escribe la spec en `specs/features/` (estado `draft`), siguiendo `specs/_template.md` y `.opencode/skill/spec-writing/SKILL.md`.
+1. Escribe la spec en `specs/features/` (estado `draft`), siguiendo `specs/_template.md` y `.agents/skills/spec-writing/SKILL.md`.
 2. Revísala y pásala a `review` → `approved`.
 3. Implementa referenciando cada criterio (`AC-x`, `CE-x`) y genera un test por criterio/caso de error.
 4. Verifica con `pnpm test`, `pnpm check` y `pnpm build`.
