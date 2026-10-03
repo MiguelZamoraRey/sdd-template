@@ -68,3 +68,9 @@ Mantén `Estructura`, `Flujo de trabajo SDD`, las reglas de commits, la sección
 ## 5. Confirmar y resumir
 
 Al terminar, muestra un resumen de los cambios realizados (AGENTS.md, README.md, docs/constitution.md, opencode.json, .env.example, .gitignore) y pide confirmación. No commitees ni hagas push (los commits los hace siempre el mantenedor).
+
+Cierra con una nota breve de cómo seguir, siempre que el usuario quiera empezar a especificar:
+
+- Reinicia opencode y selecciona el agente **coordinator** (en v2: **Shift+Tab** o lista de agentes con la tecla de agente).
+- Pídele la primera spec con el flujo SDD, por ejemplo: "Quiero añadir <primera funcionalidad>. Sigue el flujo SDD completo."
+- El coordinator repartirá el trabajo entre @planner, @implementer y @reviewer, y te pedirá aprobación en cada fase.
