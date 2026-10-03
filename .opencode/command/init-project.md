@@ -51,7 +51,7 @@ Mantén la sección "Flujo de trabajo (SDD)" y "Convenciones SDD", pero:
 
 - Reemplaza el título (`# ...`) por el nombre del proyecto.
 - Reemplaza la primera sección por una descripción real del proyecto: qué es, qué hace y para quién. Elimina cualquier mención a "boilerplate" o "template".
-- Si los comandos de verificación cambian, actualiza el paso 4 del flujo (`pnpm test` → comandos reales del proyecto).
+- Si los comandos de verificación del proyecto difieren de los del boilerplate, actualízalos con los reales del gestor elegido (donde aparezcan en AGENTS.md y README.md).
 - Si se configuraron MCPs, añade un apartado breve "MCPs" que liste los servidores configurados y qué necesita cada uno (auth OAuth o variables de entorno).
 
 ## 4. Reescribir AGENTS.md
@@ -61,8 +61,9 @@ Mantén `Estructura`, `Flujo de trabajo SDD`, las reglas de commits, la sección
 - `## Qué es este proyecto` → descripción real del proyecto nuevo.
 - `## Convenciones` → stack real: ajusta "TypeScript estricto" si aplica, dónde viven los tests, y elimina lo que no aplique.
 - `## Antes de terminar` → los comandos de test/typecheck/lint/build del gestor elegido.
+- Adapta `docs/constitution.md` (trae un starter genérico) al stack real del proyecto; el usuario podrá rehacerla después con `/sdd-constitution`.
 - Si hay MCPs configurados, menciona en `Estructura` que la config de MCPs vive en `opencode.json` y que los secretos van en variables de entorno.
 
 ## 5. Confirmar y resumir
 
-Al terminar, muestra un resumen de los cambios realizados (AGENTS.md, README.md, opencode.json, .env.example, .gitignore) y pide confirmación. No commitees ni hagas push (los commits los hace siempre el mantenedor).
+Al terminar, muestra un resumen de los cambios realizados (AGENTS.md, README.md, docs/constitution.md, opencode.json, .env.example, .gitignore) y pide confirmación. No commitees ni hagas push (los commits los hace siempre el mantenedor).
