@@ -7,7 +7,7 @@ aporte.
 
 - Template migrada a **opencode v2** (binario `opencode2`/v2): agentes multiagente en `.opencode/agents/` con formato `permissions:` (array action/resource/effect), comandos en `.opencode/commands/`, MCP en `mcp.servers`.
 - SDD del curso Mouredev: skill `sdd`, 9 comandos `/sdd-*`, estructura `specs/NNN-nombre/{spec,plan,tasks}.md`, `docs/constitution.md`, estados `borrador → aprobada → implementada`.
-- Comando `init-project` con sección opcional de MCPs (GitHub, Context7, Playwright, PostgreSQL) que auto-configura `opencode.json` (forma v2).
+- Comando `init-project` con sección opcional de MCPs (GitHub, Context7, Chrome DevTools, Playwright, PostgreSQL) que auto-configura `opencode.json` (forma v2).
 
 ## Decisiones (y por qué)
 
